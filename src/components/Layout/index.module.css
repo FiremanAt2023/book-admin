@@ -1,0 +1,9 @@
+.header {
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    /* color: rgb(2, 0, 0); */
+}
