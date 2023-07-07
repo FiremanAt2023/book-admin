@@ -16,8 +16,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Icons.SvgComponent />
-        {/* <Button type="primary">Button</Button> */}
+        <Button type="primary">Button</Button>
       </main>
     </>
   );

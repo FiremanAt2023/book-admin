@@ -4,6 +4,7 @@ Ionicons:   https://ionic.io/ionicons
 Boxicons:   https://boxicons.com/
 Flaticon:   https://www.flaticon.com/ (only for picture)
 
+!!！ [next/Image] 可以直接src引用icon/image, no need to `convert SVG to code`
 
 ### How to use add icon in this folder?
 - Download your SVG and open with any editor(Sublime)
