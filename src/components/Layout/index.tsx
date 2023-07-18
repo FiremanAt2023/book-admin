@@ -51,8 +51,8 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
                                     onClick={handleMenuClick}
                                 />
                             </Sider>
-                            <Content style={{ padding: '0 24px',background:'green' ,paddingInline:'12px'}}>
-                                Layout: {children}
+                            <Content style={{ padding: '0 24px',paddingInline:'12px'}}>
+                                {children}
                             </Content>
                         </AntLayout>
                     </Content>
