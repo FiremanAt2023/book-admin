@@ -20,10 +20,18 @@
     float: right;
 }
 
+
+
 .leftMenu {
-    /* background-color: red; */
     height: calc(100vh - 64px);
 }
+
+.content {
+    padding: 0 24px;
+    padding-inline: 12px;
+    /* height: calc(100vh - 64px); */
+}
+
 .main {
     display: flex;
     flex-direction: column;
@@ -31,5 +39,4 @@
     align-items: center;
     padding: 6rem;
     background-color: aqua;
-  }
-  
+}

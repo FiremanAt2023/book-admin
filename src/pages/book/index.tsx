@@ -2,19 +2,26 @@ import React, { useEffect, useState } from "react";
 import { Button, Form, Input, Select, Space, Table } from "antd";
 import book from "@/assets/data/book";
 import { useRouter } from "next/router";
+import { getBookList, searchBooks } from '@/api/book'
 import api from '@/api';
 import "@/api/mock";
+import qs, { stringify } from 'qs'
 
 export default function Home() {
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+
 
   useEffect(() => {
-
-      api.get("/book").then((res) => {
-          console.log(res.data.list)
-          setData(res.data.list);
-      });
-
+    const fetchData = async () => {
+      try {
+        const res: any = await getBookList(); // 等待异步请求返回结果
+        setData(res); // 更新组件状态
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
   }, []);
   const router = useRouter()
   const [form] = Form.useForm()
@@ -30,9 +37,12 @@ export default function Home() {
     }
   }]
   const handleSearch = (values: any) => {
-    console.log(values);
+    const filteredData: any = searchBooks(values, data);
+    setFilteredData(filteredData);
+
   }
   const Reset = () => {
+    setFilteredData([]);
     form.resetFields();
   }
   const handleBookEdit = (id: any) => {
@@ -79,7 +89,12 @@ export default function Home() {
         </Form.Item>
       </Form>
 
-      <Table dataSource={data} columns={columns} rowKey={"id"}/>
+      <Table
+        dataSource={filteredData.length == 0 ? data : filteredData}
+        columns={columns}
+        rowKey={"id"}
+        scroll={{ y: 530 }}
+      />
 
     </>
   );

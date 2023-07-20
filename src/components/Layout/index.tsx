@@ -1,7 +1,7 @@
 import React, { PropsWithChildren, ReactNode } from 'react';
 import { Layout as AntLayout, Menu, theme, Dropdown, MenuProps } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import style from './index.module.css';
+import styles from './index.module.css';
 import menuList from '@/assets/data/menuList';
 import Image from 'next/image';
 import bookLogo from '@/assets/Image/book_logo.png'
@@ -27,8 +27,8 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
             </Head>
             <main>
                 <AntLayout>
-                    <Header className={style.header}>
-                        <div className={style.logo}>
+                    <Header className={styles.header}>
+                        <div className={styles.logo}>
                             <Image src={bookLogo} width={40} height={40} alt="Book Logo" />
                             <p style={{ marginLeft: '10px' }}>图书管理系统</p>
                         </div>
@@ -46,12 +46,12 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
                                     mode="inline"
                                     defaultSelectedKeys={['/book']}
                                     defaultOpenKeys={['book', 'borrow', 'user']}
-                                    className={style.leftMenu}
+                                    className={styles.leftMenu}
                                     items={managementList}
                                     onClick={handleMenuClick}
                                 />
                             </Sider>
-                            <Content style={{ padding: '0 24px',paddingInline:'12px'}}>
+                            <Content className={styles.content} >
                                 {children}
                             </Content>
                         </AntLayout>
